@@ -97,8 +97,7 @@ const Hero = () => (
           />
         </div>
         <div className="absolute -bottom-6 -left-6 bg-white p-8 rounded-2xl shadow-2xl hidden lg:block max-w-xs">
-          <p className="font-serif italic text-xl mb-2">"A curadoria perfeita para sua vitrine."</p>
-          <p className="text-[10px] uppercase tracking-widest text-stone-400">Pietà Editorial 2024</p>
+          <p className="font-serif italic text-xl mb-0">"A curadoria perfeita para sua vitrine."</p>
         </div>
       </motion.div>
     </div>

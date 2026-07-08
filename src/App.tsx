@@ -17,7 +17,7 @@ import {
   ArrowRight
 } from 'lucide-react';
 
-const WHATSAPP_LINK = "https://wa.me/5500000000000?text=Olá,%20gostaria%20de%20receber%20o%20catálogo%20de%20atacado%20da%20Pietà.";
+const WHATSAPP_LINK = "https://wa.me/558191400969?text=Olá,%20gostaria%20de%20receber%20o%20catálogo%20de%20atacado%20da%20Pietà.";
 
 const Navbar = () => (
   <nav className="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-black/5 px-6 py-4 flex justify-between items-center">

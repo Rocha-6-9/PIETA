@@ -33,76 +33,97 @@ const Navbar = () => (
   </nav>
 );
 
-const Hero = () => (
-  <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-    <div className="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-      <motion.div 
-        initial={{ opacity: 0, x: -30 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8 }}
-        className="z-10"
-      >
-        <span className="inline-block text-xs uppercase tracking-[0.3em] text-stone-500 mb-4">
-          B2B • Atacado Premium
-        </span>
-        <h1 className="text-5xl md:text-7xl leading-[1.1] mb-6 font-light">
-          Moda Feminina <br />
-          <span className="italic">Premium</span> para Lojistas
-        </h1>
-        <p className="text-lg text-stone-600 mb-8 max-w-lg leading-relaxed font-light">
-          Coleções exclusivas para boutiques que buscam elegância e sofisticação. 
-          A Pietà desenvolve peças pensadas para lojas que valorizam qualidade, estilo e identidade.
-        </p>
-        
-        <div className="space-y-3 mb-10">
-          {[
-            "Coleções exclusivas",
-            "Peças com design sofisticado",
-            "Ideal para boutiques e lojas multimarcas",
-            "Atendimento comercial personalizado"
-          ].map((item, i) => (
-            <div key={i} className="flex items-center gap-3 text-stone-700">
-              <div className="w-5 h-5 rounded-full bg-stone-100 flex items-center justify-center">
-                <Check size={12} className="text-stone-900" />
-              </div>
-              <span className="text-sm font-light tracking-wide">{item}</span>
-            </div>
-          ))}
-        </div>
+const Hero = () => {
+  const videoRef = React.useRef<HTMLVideoElement>(null);
 
-        <motion.a
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          href={WHATSAPP_LINK}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-3 bg-stone-900 text-white px-10 py-5 rounded-full text-sm uppercase tracking-widest font-medium hover:bg-stone-800 transition-all shadow-xl shadow-stone-200"
+  React.useEffect(() => {
+    if (videoRef.current) {
+      // Force play and also make sure muted is explicitly set in DOM
+      videoRef.current.defaultMuted = true;
+      videoRef.current.muted = true;
+      videoRef.current.play().catch(error => {
+        console.log("Autoplay was prevented or postponed:", error);
+      });
+    }
+  }, []);
+
+  return (
+    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+      <div className="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+        <motion.div 
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className="z-10"
         >
-          Solicitar Catálogo no WhatsApp <MessageCircle size={18} />
-        </motion.a>
-      </motion.div>
+          <span className="inline-block text-xs uppercase tracking-[0.3em] text-stone-500 mb-4">
+            B2B • Atacado Premium
+          </span>
+          <h1 className="text-5xl md:text-7xl leading-[1.1] mb-6 font-light">
+            Moda Feminina <br />
+            <span className="italic">Premium</span> para Lojistas
+          </h1>
+          <p className="text-lg text-stone-600 mb-8 max-w-lg leading-relaxed font-light">
+            Coleções exclusivas para boutiques que buscam elegância e sofisticação. 
+            A Pietà desenvolve peças pensadas para lojas que valorizam qualidade, estilo e identidade.
+          </p>
+          
+          <div className="space-y-3 mb-10">
+            {[
+              "Coleções exclusivas",
+              "Peças com design sofisticado",
+              "Ideal para boutiques e lojas multimarcas",
+              "Atendimento comercial personalizado"
+            ].map((item, i) => (
+              <div key={i} className="flex items-center gap-3 text-stone-700">
+                <div className="w-5 h-5 rounded-full bg-stone-100 flex items-center justify-center">
+                  <Check size={12} className="text-stone-900" />
+                </div>
+                <span className="text-sm font-light tracking-wide">{item}</span>
+              </div>
+            ))}
+          </div>
 
-      <motion.div 
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1, delay: 0.2 }}
-        className="relative aspect-[4/5] md:aspect-[3/4]"
-      >
-        <div className="absolute inset-0 bg-stone-200 rounded-2xl overflow-hidden">
-          <img 
-            src="https://cdn-op.vesti.mobi/p/368683/99019e2d-aab3-49e2-b48b-d4d9a5bf8129/19614-lg.webp" 
-            alt="Modelo Pietà" 
-            className="w-full h-full object-cover grayscale-[20%]"
-            referrerPolicy="no-referrer"
-          />
-        </div>
-        <div className="absolute -bottom-6 -left-6 bg-white p-8 rounded-2xl shadow-2xl hidden lg:block max-w-xs">
-          <p className="font-serif italic text-xl mb-0">"A curadoria perfeita para sua vitrine."</p>
-        </div>
-      </motion.div>
-    </div>
-  </section>
-);
+          <motion.a
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            href={WHATSAPP_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 bg-stone-900 text-white px-10 py-5 rounded-full text-sm uppercase tracking-widest font-medium hover:bg-stone-800 transition-all shadow-xl shadow-stone-200"
+          >
+            Solicitar Catálogo no WhatsApp <MessageCircle size={18} />
+          </motion.a>
+        </motion.div>
+
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 0.2 }}
+          className="relative aspect-[4/5] md:aspect-[3/4]"
+        >
+          <div className="absolute inset-0 bg-stone-200 rounded-2xl overflow-hidden">
+            <video 
+              ref={videoRef}
+              autoPlay 
+              muted 
+              loop 
+              playsInline
+              preload="auto"
+              className="w-full h-full object-cover grayscale-[10%]"
+            >
+              <source src="https://cdn-op.vesti.mobi/p/368683/af6f6895-d9d4-4a70-947c-2b5ac643926c/37240-og.mp4" type="video/mp4" />
+              Seu navegador não suporta o elemento de vídeo.
+            </video>
+          </div>
+          <div className="absolute -bottom-6 -left-6 bg-white p-8 rounded-2xl shadow-2xl hidden lg:block max-w-xs">
+            <p className="font-serif italic text-xl mb-0">"A curadoria perfeita para sua vitrine."</p>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
 
 const About = () => (
   <section className="py-24 bg-white">
@@ -131,10 +152,10 @@ const About = () => (
 
 const Collection = () => {
   const items = [
-    { title: "Vestidos Fluidos", img: "https://cdn-op.vesti.mobi/p/368683/dae3e766-24ab-40db-9dd6-e8d775cc8bdb/30836-lg.webp" },
-    { title: "Conjuntos Alfaiataria", img: "https://cdn-op.vesti.mobi/p/368683/e30d3e02-16ef-4b99-b6d4-1524ad8fad54/48650-lg.webp" },
-    { title: "Peças Atemporais", img: "https://cdn-op.vesti.mobi/p/368683/d0dea043-3bc5-4240-ab44-7a8865e79c29/71108-lg.webp" },
-    { title: "Looks Boutique", img: "https://cdn-op.vesti.mobi/p/368683/33fe4423-bfe2-481e-bad4-b501a37ce4b3/42067-lg.webp" }
+    { title: "Vestidos Fluidos", img: "https://cdn-op.vesti.mobi/p/368683/af6f6895-d9d4-4a70-947c-2b5ac643926c/04556-lg.webp" },
+    { title: "Conjuntos Alfaiataria", img: "https://cdn-op.vesti.mobi/p/368683/95bd92d4-aea9-45df-91cf-a6daf3de4809/53021-lg.webp" },
+    { title: "Peças Atemporais", img: "https://cdn-op.vesti.mobi/p/368683/9716e41c-86a2-4909-a4f6-72f27398a20a/84763-lg.webp" },
+    { title: "Looks Boutique", img: "https://cdn-op.vesti.mobi/p/368683/97fae11d-4204-419c-b185-1552ed9b2cd5/17814-lg.webp" }
   ];
 
   return (

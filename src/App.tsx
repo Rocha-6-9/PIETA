@@ -21,7 +21,11 @@ const WHATSAPP_LINK = "https://wa.me/5500000000000?text=Olá,%20gostaria%20de%20
 
 const Navbar = () => (
   <nav className="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-black/5 px-6 py-4 flex justify-between items-center">
-    <div className="text-2xl font-serif tracking-widest uppercase font-semibold">Pietà</div>
+    <img 
+      src="https://cdn.vesti.mobi/companies/logo_app/368683/916c0dd3-76f7-48d5-bce1-b2dd208421a9/WhatsApp%20Image%202022-08-02%20at%2007.41.10%20-%20Copia%20png.png" 
+      alt="Pietà" 
+      className="h-10 w-auto object-contain" 
+    />
     <a 
       href={WHATSAPP_LINK}
       target="_blank"
@@ -310,7 +314,11 @@ const Footer = () => (
       </div>
       
       <div className="border-t border-white/10 pt-12 flex flex-col md:flex-row justify-between items-center gap-6">
-        <div className="text-xl font-serif tracking-widest uppercase font-semibold">Pietà</div>
+        <img 
+          src="https://cdn.vesti.mobi/companies/logo_app/368683/916c0dd3-76f7-48d5-bce1-b2dd208421a9/WhatsApp%20Image%202022-08-02%20at%2007.41.10%20-%20Copia%20png.png" 
+          alt="Pietà" 
+          className="h-8 w-auto object-contain brightness-0 invert" 
+        />
         <div className="text-[10px] uppercase tracking-widest text-stone-500">
           © 2024 Pietà Oficial • Todos os direitos reservados
         </div>

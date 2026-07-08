@@ -199,59 +199,6 @@ const Collection = () => {
   );
 };
 
-const WhyChoose = () => (
-  <section className="py-24 bg-stone-900 text-white">
-    <div className="container mx-auto px-6">
-      <div className="grid md:grid-cols-2 gap-16 items-center">
-        <div>
-          <h2 className="text-4xl md:text-5xl font-light mb-12">Por que lojistas escolhem a Pietà</h2>
-          <div className="space-y-8">
-            {[
-              { title: "Peças com forte apelo de vitrine", desc: "Design que atrai o olhar e converte em vendas imediatas." },
-              { title: "Modelagens sofisticadas", desc: "Caimento impecável que valoriza a silhueta feminina." },
-              { title: "Curadoria pensada para revenda", desc: "Mix de produtos equilibrado para facilitar sua compra." },
-              { title: "Identidade de Marca", desc: "Valorizamos a curadoria da sua loja com peças exclusivas." },
-              { title: "Atendimento Direto", desc: "Consultoria personalizada para auxiliar em seus pedidos." }
-            ].map((item, i) => (
-              <motion.div 
-                key={i}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: i * 0.1 }}
-                viewport={{ once: true }}
-                className="flex gap-6"
-              >
-                <div className="flex-shrink-0 w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-brand-gold">
-                  {i + 1}
-                </div>
-                <div>
-                  <h3 className="text-xl font-serif mb-2">{item.title}</h3>
-                  <p className="text-stone-400 font-light text-sm leading-relaxed">{item.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-        <div className="relative">
-          <div className="aspect-[4/5] rounded-2xl overflow-hidden">
-            <img 
-              src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=2070&auto=format&fit=crop" 
-              alt="Ambiente Boutique" 
-              className="w-full h-full object-cover opacity-60"
-              referrerPolicy="no-referrer"
-            />
-          </div>
-          <div className="absolute inset-0 flex items-center justify-center p-12 text-center">
-            <div className="border border-white/30 p-10 backdrop-blur-sm">
-              <p className="text-2xl font-serif italic">"Moda que comunica sofisticação em cada detalhe."</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-);
-
 const HowItWorks = () => (
   <section className="py-24 bg-white">
     <div className="container mx-auto px-6">
@@ -384,7 +331,6 @@ export default function App() {
         <Hero />
         <About />
         <Collection />
-        <WhyChoose />
         <HowItWorks />
         <Logistics />
         <Testimonials />

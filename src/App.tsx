@@ -74,7 +74,7 @@ const Hero = () => {
           
           <div className="space-y-3 mb-10">
             {[
-              "Coleções exclusivas",
+              "Coleções exclusivas toda semana",
               "Peças com design sofisticado",
               "Ideal para boutiques e lojas multimarcas",
               "Atendimento comercial personalizado"
@@ -88,16 +88,33 @@ const Hero = () => {
             ))}
           </div>
 
-          <motion.a
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            href={WHATSAPP_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-stone-900 text-white px-10 py-5 rounded-full text-sm uppercase tracking-widest font-medium hover:bg-stone-800 transition-all shadow-xl shadow-stone-200"
-          >
-            Solicitar Catálogo no WhatsApp <MessageCircle size={18} />
-          </motion.a>
+          <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
+            <motion.a
+              id="btn-whatsapp-catalog"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-3 bg-stone-900 text-white px-8 py-5 rounded-full text-sm uppercase tracking-widest font-medium hover:bg-stone-800 transition-all shadow-xl shadow-stone-200"
+            >
+              Solicitar Catálogo no WhatsApp <MessageCircle size={18} />
+            </motion.a>
+            <motion.button
+              id="btn-view-collection"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => {
+                const element = document.getElementById("collection");
+                if (element) {
+                  element.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+              className="inline-flex items-center justify-center gap-3 border border-stone-900 text-stone-900 bg-transparent px-8 py-5 rounded-full text-sm uppercase tracking-widest font-medium hover:bg-stone-100/50 transition-all"
+            >
+              Ver Coleção <ArrowRight size={18} />
+            </motion.button>
+          </div>
         </motion.div>
 
         <motion.div 
@@ -163,7 +180,7 @@ const Collection = () => {
   ];
 
   return (
-    <section className="py-24 bg-brand-offwhite">
+    <section id="collection" className="py-24 bg-brand-offwhite">
       <div className="container mx-auto px-6">
         <div className="flex justify-between items-end mb-16">
           <div>

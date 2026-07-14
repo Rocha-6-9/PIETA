@@ -133,7 +133,7 @@ const Hero = () => {
               preload="auto"
               className="w-full h-full object-cover grayscale-[10%]"
             >
-              <source src="https://cdn-op.vesti.mobi/p/368683/af6f6895-d9d4-4a70-947c-2b5ac643926c/37240-og.mp4" type="video/mp4" />
+              <source src="https://cdn-op.vesti.mobi/p/368683/d1a37a55-8807-4b47-b77f-b896b73c0183/32589-og.mp4" type="video/mp4" />
               Seu navegador não suporta o elemento de vídeo.
             </video>
           </div>
@@ -173,7 +173,7 @@ const About = () => (
 
 const Collection = () => {
   const items = [
-    { title: "Vestidos Fluidos", img: "https://cdn-op.vesti.mobi/p/368683/af6f6895-d9d4-4a70-947c-2b5ac643926c/04556-lg.webp" },
+    { title: "Vestidos Fluidos", img: "https://cdn-op.vesti.mobi/p/368683/d1a37a55-8807-4b47-b77f-b896b73c0183/88479-lg.webp" },
     { title: "Conjuntos Alfaiataria", img: "https://cdn-op.vesti.mobi/p/368683/95bd92d4-aea9-45df-91cf-a6daf3de4809/53021-lg.webp" },
     { title: "Peças Atemporais", img: "https://cdn-op.vesti.mobi/p/368683/9716e41c-86a2-4909-a4f6-72f27398a20a/84763-lg.webp" },
     { title: "Looks Boutique", img: "https://cdn-op.vesti.mobi/p/368683/97fae11d-4204-419c-b185-1552ed9b2cd5/17814-lg.webp" }

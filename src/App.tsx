@@ -52,27 +52,54 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-      <div className="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+    <section className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden bg-white">
+      <div className="container mx-auto px-6 max-w-4xl">
         <motion.div 
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="z-10"
+          className="z-10 flex flex-col items-center text-center"
         >
-          <span className="inline-block text-xs uppercase tracking-[0.3em] text-stone-500 mb-4">
-            B2B • Atacado Premium
+          <span className="inline-block text-xs uppercase tracking-[0.2em] text-stone-500 mb-4">
+            Atacado Premium - Direto da fábrica em Santa Cruz do capibaribe
           </span>
-          <h1 className="text-5xl md:text-7xl leading-[1.1] mb-6 font-light">
+          <h1 className="text-5xl md:text-7xl leading-[1.1] mb-8 font-light">
             Moda Feminina <br />
-            <span className="italic">Premium</span> para Lojistas
+            <span className="italic">Premium</span> para Lojistas e Revendedoras
           </h1>
+
+          {/* Video Container placed exactly between headline and subheadline */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="w-full max-w-md aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl mb-8 relative bg-stone-100"
+          >
+            <div className="absolute inset-0">
+              <video 
+                ref={videoRef}
+                autoPlay 
+                muted 
+                loop 
+                playsInline
+                preload="auto"
+                className="w-full h-full object-cover grayscale-[10%]"
+              >
+                <source src="https://cdn-op.vesti.mobi/p/368683/d1a37a55-8807-4b47-b77f-b896b73c0183/32589-og.mp4" type="video/mp4" />
+                Seu navegador não suporta o elemento de vídeo.
+              </video>
+            </div>
+            <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-sm p-4 rounded-xl shadow-lg hidden sm:block text-left">
+              <p className="font-serif italic text-sm text-stone-800 mb-0">"A curadoria perfeita para sua vitrine."</p>
+            </div>
+          </motion.div>
+
           <p className="text-lg text-stone-600 mb-8 max-w-lg leading-relaxed font-light">
             Coleções exclusivas para boutiques que buscam elegância e sofisticação. 
             A Pietà desenvolve peças pensadas para lojas que valorizam qualidade, estilo e identidade.
           </p>
           
-          <div className="space-y-3 mb-10">
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 mb-10 max-w-2xl mx-auto">
             {[
               "Coleções exclusivas toda semana",
               "Peças com design sofisticado",
@@ -88,7 +115,7 @@ const Hero = () => {
             ))}
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
+          <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-center w-full max-w-md">
             <motion.a
               id="btn-whatsapp-catalog"
               whileHover={{ scale: 1.02 }}
@@ -96,9 +123,9 @@ const Hero = () => {
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 bg-stone-900 text-white px-8 py-5 rounded-full text-sm uppercase tracking-widest font-medium hover:bg-stone-800 transition-all shadow-xl shadow-stone-200"
+              className="inline-flex items-center justify-center gap-3 bg-stone-900 text-white px-8 py-5 rounded-full text-sm uppercase tracking-widest font-medium hover:bg-stone-800 transition-all shadow-xl shadow-stone-200 w-full sm:w-auto text-center"
             >
-              Solicitar Catálogo no WhatsApp <MessageCircle size={18} />
+              Fale com consultora e receba o catálogo completo <MessageCircle size={18} />
             </motion.a>
             <motion.button
               id="btn-view-collection"
@@ -110,35 +137,10 @@ const Hero = () => {
                   element.scrollIntoView({ behavior: "smooth" });
                 }
               }}
-              className="inline-flex items-center justify-center gap-3 border border-stone-900 text-stone-900 bg-transparent px-8 py-5 rounded-full text-sm uppercase tracking-widest font-medium hover:bg-stone-100/50 transition-all"
+              className="inline-flex items-center justify-center gap-3 border border-stone-900 text-stone-900 bg-transparent px-8 py-5 rounded-full text-sm uppercase tracking-widest font-medium hover:bg-stone-100/50 transition-all w-full sm:w-auto"
             >
               Ver Coleção <ArrowRight size={18} />
             </motion.button>
-          </div>
-        </motion.div>
-
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="relative aspect-[4/5] md:aspect-[3/4]"
-        >
-          <div className="absolute inset-0 bg-stone-200 rounded-2xl overflow-hidden">
-            <video 
-              ref={videoRef}
-              autoPlay 
-              muted 
-              loop 
-              playsInline
-              preload="auto"
-              className="w-full h-full object-cover grayscale-[10%]"
-            >
-              <source src="https://cdn-op.vesti.mobi/p/368683/d1a37a55-8807-4b47-b77f-b896b73c0183/32589-og.mp4" type="video/mp4" />
-              Seu navegador não suporta o elemento de vídeo.
-            </video>
-          </div>
-          <div className="absolute -bottom-6 -left-6 bg-white p-8 rounded-2xl shadow-2xl hidden lg:block max-w-xs">
-            <p className="font-serif italic text-xl mb-0">"A curadoria perfeita para sua vitrine."</p>
           </div>
         </motion.div>
       </div>
